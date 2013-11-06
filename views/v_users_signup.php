@@ -2,12 +2,19 @@
 
 <form method='POST' action ='/users/p_signup'>
 
-First Name <input type='text' name='first_name'><br><br>
-Last Name <input type='text' name='last_name'><br><br>
-Email <input type='text' name = 'email'><br><br>
-Password <input type='password' name='password'><br><br>
+
+First Name<font color="red">*</font><br>
+<input type='text' name='first_name'><br><br>
+Last Name<br>
+<input type='text' name='last_name'><br><br>
+Email<font color="red">*</font><br>
+<input type='text' name = 'email'><br><br>
+Password<font color="red">*</font><br>
+<input type='password' name='password'><br><br>
 
 <input type='submit' value='Sign Up'>
 
 
 </form>
+<br>
+Items marked with <font color="red">*</font> are required.

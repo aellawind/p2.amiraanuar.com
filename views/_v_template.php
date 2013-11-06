@@ -7,6 +7,7 @@
 					
 	<!-- Common CSS/JSS -->
 	<link rel="stylesheet" type="text/css" href="/css/style.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" media="screen">
 		
 
 	<!-- Controller Specific JS/CSS -->
@@ -35,7 +36,7 @@
         	<li><a href='/'>Home</a></li>
             <li><a href='/users/profile'>Profile</a></li>
             <li><a href='/posts/users'>Connect</a></li>
-            <li><a href='/posts'>Feed</a></li>
+            <li><a href='/posts'>Engorge</a></li>
             <li><a href='/posts/add'>Post</a></li>
             <li><a href='/users/logout'>Logout</a></li>
 
@@ -43,8 +44,9 @@
         <?php else: ?>
 
         	<li><a href='/'>Home</a></li>
-            <li><a href='/users/signup'>Sign up</a></li>
             <li><a href='/users/login'>Log in</a></li>
+            <li><a href='/users/signup'>Sign up</a></li>
+            
 
         <?php endif; ?>
         </ul></div>
@@ -58,6 +60,11 @@
 		<?php if(isset($client_files_body)) echo $client_files_body; ?>
 	</div>
 
+
+</div>
+
+<div class="copyright">
+	(c) Amira Anuar
 </div>
 
 </body>

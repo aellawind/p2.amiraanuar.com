@@ -1,3 +1,26 @@
+
+
+/* basic elements */
+html {
+	margin: 0;
+	padding: 0;
+	}
+
+p { 
+	margin-top: 0; 
+	text-align: justify;
+	}
+h3 { 
+	font: italic normal 1.4em georgia, sans-serif;
+	letter-spacing: 1px; 
+	margin-bottom: 0; 
+	color: #7D775C;
+	}
+
+
+
+
+
 body {
 	background: url('/images/rolls.JPG') no-repeat center center fixed;
 	-webkit-background-size: cover;
@@ -5,6 +28,12 @@ body {
 	-o-background-size: cover;
 	background-size: cover;
 	text-align: center;
+
+	font: 75% georgia, sans-serif;
+	line-height: 1.88889;
+	color: #555753; 
+	margin: 0; 
+	padding: 0;
 }
 
 ul {
@@ -83,10 +112,22 @@ ul li.active a{
 	margin:0 auto 0 auto;
 }
 
-
+.copyright {
+	position: absolute;
+	bottom: 0;
+	right: 3px;
+	height: auto;
+	text-align: center;
+	color:#363636;
+}
 
 #header {
 	width:783; height:317; text-align:center;
 	margin:0 auto 0 auto;
 
+}
+
+#main_page {
+	width:80%;
+	margin: 50px auto;
 }

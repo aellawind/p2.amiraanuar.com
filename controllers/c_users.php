@@ -95,8 +95,7 @@ class users_controller extends base_controller {
     }
 
 }
-
-        
+    
 
     public function logout() {
          # Generate and save a new token for next login
@@ -120,29 +119,37 @@ class users_controller extends base_controller {
 
     public function editprofile() {
 
+        # Make sure user is logged in if they want to use anything
+        if(!$this->user) {
+            die("You have to be a member to edit your profile. Please <a href='/'>login</a> or <a href='/users/signup'>sign up</a>.");
+        
+        }
+
+        else {
         $view = View::instance('v_users_editprofile');
 
         $view->user_name = $user_name;
 
 
         echo $view;
+    }
 
      
     }
 
-    public function profile($user_name = NULL) {
+    public function profile($first_name = NULL) {
 
         $view = View::instance('v_users_profile');
 
-        $view->user_name = $user_name;
+        $view->first_name = $first_name;
 
         echo $view;
 
-        if($user_name == NULL) {
+        if($first_name == NULL) {
             echo "No user specified";
         }
         else {
-            echo "This is the profile for ".$user_name;
+            echo "This is the profile for ".$first_name;
         }
     }
 
