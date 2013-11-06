@@ -16,10 +16,18 @@
 
 <body>	
 
-    <div class='wrapper'>
-    	<div class="container"><ul class="menu" rel="sam1">
+<div class="backwrapper">
 
-        
+
+    <div id="header">
+		<img src="/images/header.png" alt="Baking Bites" height="317px" width="783px">
+	</div>
+
+    <div class='wrapper'>
+    	<div class="container">
+
+
+    	<ul class="menu" rel="sam1">
 
         <!-- Menu for users who are logged in -->
         <?php if($user): ?>
@@ -28,7 +36,7 @@
             <li><a href='/users/profile'>Profile</a></li>
             <li><a href='/posts/users'>Connect</a></li>
             <li><a href='/posts'>Feed</a></li>
-            <li><a href='posts/add'>Post</a></li>
+            <li><a href='/posts/add'>Post</a></li>
             <li><a href='/users/logout'>Logout</a></li>
 
         <!-- Menu options for users who are not logged in -->
@@ -44,9 +52,13 @@
 
     <br>
 
-	<?php if(isset($content)) echo $content; ?>
+    <div class="lowercontainer">
+		<?php if(isset($content)) echo $content; ?>
 
-	<?php if(isset($client_files_body)) echo $client_files_body; ?>
+		<?php if(isset($client_files_body)) echo $client_files_body; ?>
+	</div>
+
+</div>
 
 </body>
 </html>

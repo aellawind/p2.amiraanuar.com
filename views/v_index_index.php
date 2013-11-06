@@ -1,9 +1,9 @@
 
-						<h2>Welcome to Amira's Microblog!</h2>
+						<h1>Welcome to Baking Bites!</h1>
 
 
 						<?php if(!$user): ?>
-						Welcome to Amira's App. Please sign in!
+						Baking Bites is the perfect place to share your favorite recipes, what you're currently baking, general bake-savvy tips, and to discover the culprit behind that sinfully heavenly smell.
 						<!--Display the login module-->
 						<?php echo $login; ?>
 	
@@ -11,5 +11,6 @@
 
 
 						<?php else: ?>
-						</h1>Welcome to this amazing blog, <?=$user->first_name ?>
+						<h3>Welcome back to Baking Bites, <?=$user->first_name ?>!</h3>
+						<p>Check out what's baking, or let your friends know what that amazing smell from your oven is!</p>
 						<?php endif; ?>

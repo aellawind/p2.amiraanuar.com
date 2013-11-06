@@ -1,10 +1,19 @@
+body {
+	background: url('/images/rolls.JPG') no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	text-align: center;
+}
+
 ul {
     margin: 0;
     padding: 0;
 }
  
 ul.menu {
-    height: 80px;
+    height: 70px;
     border-left: 1px solid rgba(0,0,0,0.3);
     border-right: 1px solid rgba(255,255,255,0.3);
     float:left;
@@ -13,11 +22,11 @@ ul.menu {
 ul.menu li {
     list-style: none;
     float:left;
-    height: 79px;
-    width:115px;
+    height: 70px;
+    width:130px;
     text-align: center;
-    background: -webkit-gradient(radial, 50% 100%, 10, 50% 50%, 90, from(rgba(31,169,244,1)), to(rgba(0,28,78, 1)) );
-    background: -moz-radial-gradient(center 80px 45deg, circle cover, rgba(31,169,244,1) 0%, rgba(0,28,78, 1) 100%);
+    background: -webkit-gradient(radial, 50% 100%, 10, 50% 50%, 90, from(rgba(148,121,93,1)), to(rgba(49,28,39, 1)) );
+    background: -moz-radial-gradient(center 80px 45deg, circle cover, rgba(148,121,93,1) 0%, rgba(49,28,39, 1) 100%);
     }
  
 ul li a {
@@ -26,7 +35,7 @@ ul li a {
     border-left: 1px solid rgba(255,255,255,0.1);
     border-right: 1px solid rgba(0,0,0,0.1);
     text-align: center;
-    line-height: 79px;
+    line-height: 70px;
     background : -webkit-gradient(linear, left top, left bottom, from(rgb(168,168,168)), to(rgb(69,69,69)));
     background : -moz-linear-gradient(top, rgb(168,168,168), rgb(69,69,69));
     -webkit-transition-property: background;
@@ -46,24 +55,38 @@ ul li a:hover {
  
 ul li.active a{
     background: -webkit-gradient(radial, 50% 100%, 10, 50% 50%, 90, from(rgba(31,169,244,1)), to(rgba(0,28,78, 1)) );
-    background: -moz-radial-gradient(center 80px 45deg, circle cover, rgba(31,169,244,1) 0%, rgba(0,28,78, 1) 100%);
+    background: -moz-radial-gradient(center 70px 45deg, circle cover, rgba(31,169,244,1) 0%, rgba(0,28,78, 1) 100%);
 }
 
 .wrapper {
-    width: 100%;
-    height: 80px;
+    width: 783px;
+    height: 71px;
     background : #464646;
     background : -webkit-gradient(linear, left top, left bottom, from(rgb(168,168,168)), to(rgb(69,69,69)));
     background : -moz-linear-gradient(top, rgb(168,168,168), rgb(69,69,69));
     border-top: 2px solid #939393;
     position: relative;
-    margin-bottom: 30px;
+    margin:0 auto 0 auto;
+}
+
+.backwrapper {
+	width:783px;
+	background:rgba(168,168,168,0.8);
+	min-height: 900px;
+	height: auto !important;
+	height: 1000px;
+	margin: 0 auto 0 auto;
 }
 
 .container {
-	width:800px;
+	width:783px;
 	margin:0 auto 0 auto;
 }
 
 
-/* This creates a wrapper for long columns in the middle of my non-landing pages */
+
+#header {
+	width:783; height:317; text-align:center;
+	margin:0 auto 0 auto;
+
+}
