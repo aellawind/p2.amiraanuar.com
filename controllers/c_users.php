@@ -20,6 +20,8 @@ class users_controller extends base_controller {
 
     }
 
+    #MAKE SURE PEOPLE SIGNING UP CAN'T INPUT THE SAME EMAIL ADDRESSSSS
+
     public function p_signup() {
 
         # More data we want stored with the user
@@ -35,8 +37,8 @@ class users_controller extends base_controller {
         # Insert this user into the database
         $user_id = DB::instance(DB_NAME)->insert_row('users', $_POST);
 
-        # For now, just confirming they've signed; will eventually make a proper View
-        echo "You've signed up! AMIRA make a proper view";
+        # Send them to the edit profile page, once signed up
+        Router::redirect("/users/editprofile");
     }
 
     public function login($error=NULL) {
@@ -114,6 +116,18 @@ class users_controller extends base_controller {
         Router::redirect("/");
 
 
+    }
+
+    public function editprofile() {
+
+        $view = View::instance('v_users_editprofile');
+
+        $view->user_name = $user_name;
+
+
+        echo $view;
+
+     
     }
 
     public function profile($user_name = NULL) {
