@@ -8,7 +8,7 @@
 						<!--Display the login module-->
 						<?php echo $login; ?>
 	
-						<p>If you are not yet a member, please <a href="/users/signup">sign up!</a>!</p>
+						<p>If you are not yet a member, please <a href="/users/signup">sign up</a>!</p>
 
 
 						<?php else: ?>

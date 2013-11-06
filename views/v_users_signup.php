@@ -12,7 +12,7 @@ Email<font color="red">*</font><br>
 Password<font color="red">*</font><br>
 <input type='password' name='password'><br><br>
 
-<input type='submit' value='Sign Up'>
+<input type='submit' name='submit' value='Sign Up' id='submit'>
 
 
 </form>

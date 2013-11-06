@@ -44,7 +44,6 @@
         <?php else: ?>
 
         	<li><a href='/'>Home</a></li>
-            <li><a href='/users/login'>Log in</a></li>
             <li><a href='/users/signup'>Sign up</a></li>
             
 
