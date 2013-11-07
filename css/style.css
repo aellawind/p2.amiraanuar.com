@@ -135,15 +135,6 @@ ul li.active a{
 	margin:0 auto 0 auto;
 }
 
-.copyright {
-	position: absolute;
-	bottom: 0px;
-	right: 15px;
-	height: auto;
-	text-align: center;
-	color:#363636;
-}
-
 #header {
 	width:783; height:317; text-align:center;
 	margin:0 auto 0 auto;

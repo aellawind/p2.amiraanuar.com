@@ -61,10 +61,6 @@
 </div>
 
 
-<!--My copyright info -->
-<div class="copyright">
-	(c) Amira Anuar
-</div>
 
 </body>
 </html>

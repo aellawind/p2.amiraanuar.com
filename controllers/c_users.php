@@ -205,27 +205,47 @@ class users_controller extends base_controller {
         $_POST = DB::instance(DB_NAME)->sanitize($_POST);
 
         # DO NOT INSERT BLANK DATA
+        foreach($_POST as $field_name => $value) {
+            if($value == "") {
+                unset($_POST[$field_name]);
+            }
+        }
 
-        # Insert submission into database
-        $q = DB::instance(DB_NAME)->update('users', $_POST, "WHERE user_id = '".$this->user->user_id."'");
-        
+        # Insert submission into database if there is any data
+        if($_POST) {
+            $q = DB::instance(DB_NAME)->update('users', $_POST, "WHERE user_id = '".$this->user->user_id."'");
+        }
+
         Router::redirect('/users/profile');
 
     }
 
 
-    public function profile($user_name = NULL) {
+    public function profile($username = NULL) {
 
         # Users cannot try to access this page unless logged in. They're sent to home if they do.
         if(!$this->user) {
             Router::redirect('/');
         }
-        
+
         $this->template->content = View::instance('v_users_profile');
         $this->template->title = "User Profile";
 
-        # Query to create the profile from all the information
-        $q = 'SELECT first_name, 
+        if($username) {
+            $this->template->content->username = "";
+        }
+
+        # Lookin at your own profile
+        else {
+            # Change the variable
+            $username = $this->user->username;
+            $this->template->content->username = $username;
+        }
+        
+        
+
+
+        $q = "SELECT first_name, 
                     last_name, 
                     nickname,
                     bakedgood,
@@ -235,20 +255,19 @@ class users_controller extends base_controller {
                     bio,
                     recipes
                 FROM users
-                WHERE users.user_id = '.$this->user->user_id;
+                WHERE users.username = '".$username."'";
+        
+
 
         $profile = DB::instance(DB_NAME)->select_rows($q);
-
+        
         # Pass the data to the view
         $this->template->content->profile = $profile;    
-        
-        # Pass information to the view on the user
-        if($user_name) {
-            $this->template->content->user_name = $user_name;
-        }
-        else {
-            $this->template->content->user_name = $this->user->user_name;
-        }
+
+        # Pass the username to the view
+
+
+        #
         echo $this->template;
 
         

@@ -1,21 +1,26 @@
 <div id="post">
 
-<h1><?=$user->first_name?>'s Profile</h1>
+<?php foreach($profile as $prof): ?>
+
+<h1><?=$prof['first_name']?>'s Profile</h1>
 
 
-<p>Name: <?=$user->first_name?> <?=$user->last_name?></p>
-<p>Nickname: <?=$user->nickname?></p>
-<p>Member Since: <?=date('F j, Y', $user->created) ?></p>
-<p>Baked Good of Choice: <?=$user->bakedgood?></p>
-<p>Favorite Type of Cake: <?=$user->cake?></p>
-<p>Favorite Type of Cookies: <?=$user->cookie?></p>
-<p>Your Baking Advice Catchphrase: <?=$user->bakingadvice?></p>
-<p>Mini Bio: <?=$user->bio?></p>
-<p>Favorite Recipes: <?=$user->recipes?></p>
+<p><b>Name: </b><?=$prof['first_name']?> <?=$prof['last_name']?></p>
+<p><b>Nickname: </b><?=$prof['nickname']?></p>
+<p><b>Baked Good of Choice: </b><?=$prof['bakedgood']?></p>
+<p><b>Favorite Type of Cake: </b><?=$prof['cake']?></p>
+<p><b>Favorite Type of Cookies: </b><?=$prof['cookie']?></p>
+<p><b>Your Baking Advice Catchphrase: </b><?=$prof['bakingadvice']?></p>
+<p><b>Mini Bio: </b><?=$prof['bio']?></p>
+<p><b>Favorite Recipes: </b><?=$prof['recipes']?></p>
 
 
-<?php if($user): ?>
+<?php endforeach; ?>
+
+<!--Only shows if it's default user-->
+<?php if($username): ?>
 	<a href="/users/editprofile">Edit Your Profile</a>
 <?php endif; ?>
 
 </div>
+<br><br>

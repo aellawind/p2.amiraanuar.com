@@ -1,6 +1,7 @@
 <div id ="post">
 
-<p>Hello, <?=$user->first_name ?>!</p>
+<p>Hello, <?php $this->user->username ?>!</p>
+MEOW
 
 <p>Fill in the following fields to update your profile.</p>
 
@@ -24,3 +25,4 @@ Share some links to your favorite recipes <input type='text' name='recipes'><br>
 </form>
 
 </div>
+<br><br>
