@@ -14,12 +14,16 @@
 
 	<div id="post">
 
-	<p id="name">You (<?=$post['first_name']?> <?=$post['last_name']?>) posted:</p>
-	    <p><?=$post['content']?></p>
+		<p id="name">You (<?=$post['first_name']?> <?=$post['last_name']?>) posted:</p>
+		    <p><?=$post['content']?></p>
 
-	    <time datetime="<?=Time::display($post['created'],'Y-m-d G:i')?>" id="small">
-	        <?=Time::display($post['created'])?>
-	    </time>
+		    <time datetime="<?=Time::display($post['created'],'Y-m-d G:i')?>" id="small">
+		        <?=Time::display($post['created'])?>
+		    </time><br>
+
+		<!--Delete button-->
+		<a href="/posts/delete/<?=$post['post_id']?>">Delete Post</a>
+
 	   
 
 	</div>

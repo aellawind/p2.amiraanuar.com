@@ -23,6 +23,7 @@ class posts_controller extends base_controller {
 			    posts.content,
 	            posts.created,
 	           	posts.user_id,
+	           	posts.post_id,
 	           	users.first_name,
 	           	users.last_name
 			FROM posts
@@ -64,6 +65,26 @@ class posts_controller extends base_controller {
 
 
     }
+
+    public function delete($post_id) {
+
+    	$this->template->content = View::instance('v_post_delete');
+    	$this->template->title = "Delete Confirmation";
+    	$this->template->content->post_id = $post_id;
+
+    	echo $this->template;
+
+    }
+
+
+    public function p_delete($post_id) {
+
+    	$post_location = 'WHERE post_id = '.$post_id;
+    	DB::instance(DB_NAME)->delete('posts', $post_location);
+
+    	Router::redirect("/posts/add");
+    }
+
 
     public function index() {
 
@@ -163,4 +184,4 @@ class posts_controller extends base_controller {
     	Router::redirect("/posts/users");
 
 	}
-}
+} #eoc

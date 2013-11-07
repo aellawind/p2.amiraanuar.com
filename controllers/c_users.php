@@ -186,20 +186,29 @@ class users_controller extends base_controller {
      
     }
 
-    public function p_profile($first_name = NULL) {
+    
 
-        $view = View::instance('v_users_profile');
+    public function profile($user = NULL) {
 
-        $view->first_name = $first_name;
-
-        echo $view;
-
-        if($first_name == NULL) {
-            echo "No user specified";
+        if(!$this->user) {
+            Router::redirect('/');
         }
+        
+        $this->template->content = View::instance('v_users_profile');
+
+        if($user) {
+            $this->template->content->user = $user;
+        }
+
         else {
-            echo "This is the profile for ".$first_name;
+            $this->template->content->user = $this->user;
         }
+    
+        
+
+        echo $this->template;
+
+        
     }
 
 } # end of the class
