@@ -11,7 +11,7 @@
 	<input type='text' name = 'email' class='submissionfield'><br><br>
 	Username<span style="color:red">*</span><br>
 	<input type='text' name = 'username' class='submissionfield'><br><br>
-	Password<span style="color:red">*</span><br>
+	Password (mimimum six characters)<span style="color:red">*</span><br>
 	<input type='password' name='password' class='submissionfield'><br><br>
 
 	<!-- The below is all error checking for the field inputs.-->
