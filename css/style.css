@@ -32,15 +32,13 @@ p {
 	margin-top: 0; 
 	text-align: justify;
 	}
+
 h3 { 
 	font: italic normal 1.4em georgia, sans-serif;
 	letter-spacing: 1px; 
 	margin-bottom: 0; 
 	color: #7D775C;
 	}
-
-
-
 
 
 body {
@@ -137,13 +135,15 @@ ul li.active a{
 
 #header {
 	width:783; height:317; text-align:center;
-	margin:0 auto 0 auto;
+	margin:0 auto -10px auto;
 
 }
 
 #main_page {
 	width:80%;
 	margin: 50px auto;
+	text-align: center;
+
 }
 
 #post {
@@ -175,3 +175,32 @@ ul li.active a{
 	font-weight:bold;
 	color:#4b3f2f;
 }
+
+#follow {
+	width:85%;
+	background:#B39D9A;
+	margin: auto;
+	padding: 10px 10px 10px 10px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	border-style:solid;
+	border-width:2px;
+	border-color:#675654;
+	text-align: left;
+	padding:5px 15px 5px 15px;
+	word-wrap: break-word;
+	color:#4D4443;
+}
+
+#follow_button {
+
+}
+
+
+
+
+
+
+
+
+

@@ -1,7 +1,6 @@
 <div id ="post">
 
-<p>Hello, <?php $this->user->username ?>!</p>
-MEOW
+<p>Hello, <?=$user->first_name ?> !</p>
 
 <p>Fill in the following fields to update your profile.</p>
 

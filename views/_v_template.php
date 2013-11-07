@@ -31,9 +31,9 @@
 
         		<li><a href='/'>Home</a></li>
            		<li><a href='/users/profile'>Profile</a></li>
-	            <li><a href='/posts/users'>Connect</a></li>
+	            <li><a href='/posts/users'>follow</a></li>
 	            <li><a href='/posts'>Engorge</a></li>
-	            <li><a href='/posts/add'>Post</a></li>
+	            <li><a href='/posts/add'>Bake!</a></li>
 	            <li><a href='/users/logout'>Logout</a></li>
 
 	        <!-- Menu options for users who are not logged in -->

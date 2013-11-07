@@ -11,11 +11,14 @@
 
 
 	<?php else: ?>
-		<h1>Welcome back to Baking Bites, <?=$user->first_name ?>!</h1>
-		<p>Check out what's baking, or let your friends know what that amazing smell from your oven is!</p>
+		<h1>Welcome Back to Baking Bites, <?=$user->first_name ?>!</h1>
+		<p>Connect with fellow bakers, check out what's baking by engorging on your friends' posts, or bake up your own post!
+		This site brought to you by Amira Anuar.</p>
+		<img src="http://1.bp.blogspot.com/-8w4STtQghvo/Umk-uf1ChiI/AAAAAAAABcw/8-Fh_fjnIVE/s1600/DSC_1017.JPG" height="222" width="335" alt="cake">
 	
 	<?php endif; ?>
 
+	<br><br>
 	<p>The plus two features on my site are editing your profile and deleting a post.</p>
 	<br><br>
 
