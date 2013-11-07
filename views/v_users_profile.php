@@ -1,4 +1,4 @@
-<div id="post">
+<div class="post">
 
 <?php foreach($profile as $prof): ?>
 

@@ -1,4 +1,4 @@
-<div id="post">
+<div class="post">
 
 	<h2>Delete Confirmation</h2>
 	<p>Are you sure you want to delete this post?</p>

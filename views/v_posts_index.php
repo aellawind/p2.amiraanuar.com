@@ -2,7 +2,7 @@
 
 <?php foreach($posts as $post): ?>
 
-<div id="post">
+<div class="post">
 
     <p id="name"><?=$post['first_name']?> <?=$post['last_name']?> posted:</p>
 

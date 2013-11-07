@@ -11,7 +11,7 @@
 <!--Display all of your posts in one list.-->
 <?php foreach($posts as $post): ?>
 
-	<div id="post">
+	<div class="post">
 
 			<!--Delete button-->
 		<a href="/posts/delete/<?=$post['post_id']?>" class="deletepost">Delete Post</a>
@@ -20,7 +20,7 @@
 		<p id="name">You ( <?=$user->first_name ?>  <?=$user->last_name ?>) posted:</p>
 		    <p><?=$post['content']?></p>
 
-		    <time datetime="<?=Time::display($post['created'],'Y-m-d G:i')?>" id="small">
+		    <time datetime="<?=Time::display($post['created'],'Y-m-d G:i')?>" class="small">
 		        <?=Time::display($post['created'])?>
 		    </time><br>
 
