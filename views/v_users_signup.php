@@ -9,12 +9,22 @@
 	<input type='text' name='last_name'><br><br>
 	Email<font color="red">*</font><br>
 	<input type='text' name = 'email'><br><br>
+	Username<font color="red">*</font><br>
+	<input type='text' name = 'username'><br><br>
 	Password<font color="red">*</font><br>
 	<input type='password' name='password'><br><br>
 
+	<!-- The below is all error checking for the field inputs.-->
 	<?php if($error == 'user-exists'): ?>
 			<div class='error'>
 				This user already exists. Please try again with a different e-mail address.
+			</div>
+			<br>
+	<?php endif; ?>
+
+	<?php if($error == 'username-exists'): ?>
+			<div class='error'>
+				This username already exists. Please try again with a different username.
 			</div>
 			<br>
 	<?php endif; ?>
@@ -36,6 +46,13 @@
 	<?php if($error == 'email_required'): ?>
 			<div class='error'>
 				Please enter your email address.
+			</div>
+			<br>
+	<?php endif; ?>
+
+	<?php if($error == 'username_required'): ?>
+			<div class='error'>
+				Please enter a username.
 			</div>
 			<br>
 	<?php endif; ?>

@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title><?php if(isset($title)) echo $title; ?></title>
+	<link rel="shortcut icon" href="/images/favicon.ico"/>
 
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />	
 					
@@ -19,7 +20,7 @@
 
 
     <div id="header">
-		<img src="/images/header.png" alt="Baking Bites" height="300px" width="783px">
+		<img src="/images/header.png" alt="Baking Bites" height="317px" width="783px">
 	</div>
     <div class='wrapper'>
     	<div class="container">

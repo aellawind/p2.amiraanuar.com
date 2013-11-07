@@ -38,10 +38,22 @@ class users_controller extends base_controller {
         # Query the database for the email
         $user_exists = DB::instance(DB_NAME)->select_rows($q);
 
+        # Set up the username query
+        $q = "SELECT * FROM users WHERE username = '".$_POST['username']."'";
+
+        # Query the database for the email
+        $username_exists = DB::instance(DB_NAME)->select_rows($q);
+
         # Check if this email exists in the database
         if(!empty($user_exists)){
             # Send the person back to the sign in page with an error
             Router::redirect('/users/signup/user-exists');
+        }
+
+        # Check if this email exists in the database
+        if(!empty($username_exists)){
+            # Send the person back to the sign in page with an error
+            Router::redirect('/users/signup/username-exists');
         }
 
 
@@ -57,6 +69,10 @@ class users_controller extends base_controller {
 
         if ($_POST['email'] == "") {
             Router::redirect('/users/signup/email_required');
+        }
+
+        if ($_POST['username'] == "") {
+            Router::redirect('/users/signup/username_required');
         }
 
         if ($_POST['password'] == "") {
@@ -169,46 +185,73 @@ class users_controller extends base_controller {
 
     public function editprofile() {
 
-        # Make sure user is logged in if they want to use anything
+        # Users cannot try to access this page unless logged in. They're sent to home if they do.
         if(!$this->user) {
-            die("You have to be a member to edit your profile. Please <a href='/'>login</a> or <a href='/users/signup'>sign up</a>.");
-        
+            Router::redirect('/');
         }
 
-        else {
-            # Set up the view
-            $this->template->content = View::instance('v_users_editprofile');
-            $this->template->title = "Edit Your Profile";
+        # Set up the view
+        $this->template->content = View::instance('v_users_editprofile');
+        $this->template->title = "Edit Your Profile";
 
-            echo $this->template;
-        }
-
+        echo $this->template;
      
     }
 
-    
+    # The below function does nothing but proces the info from editprofile for profile to use.
+    public function p_profile() {
 
-    public function profile($user = NULL) {
+        # Sanitize the data
+        $_POST = DB::instance(DB_NAME)->sanitize($_POST);
 
+        # DO NOT INSERT BLANK DATA
+
+        # Insert submission into database
+        $q = DB::instance(DB_NAME)->update('users', $_POST, "WHERE user_id = '".$this->user->user_id."'");
+        
+        Router::redirect('/users/profile');
+
+    }
+
+
+    public function profile($user_name = NULL) {
+
+        # Users cannot try to access this page unless logged in. They're sent to home if they do.
         if(!$this->user) {
             Router::redirect('/');
         }
         
         $this->template->content = View::instance('v_users_profile');
+        $this->template->title = "User Profile";
 
-        if($user) {
-            $this->template->content->user = $user;
-        }
+        # Query to create the profile from all the information
+        $q = 'SELECT first_name, 
+                    last_name, 
+                    nickname,
+                    bakedgood,
+                    cake,
+                    cookie,
+                    bakingadvice,
+                    bio,
+                    recipes
+                FROM users
+                WHERE users.user_id = '.$this->user->user_id;
 
-        else {
-            $this->template->content->user = $this->user;
-        }
-    
+        $profile = DB::instance(DB_NAME)->select_rows($q);
+
+        # Pass the data to the view
+        $this->template->content->profile = $profile;    
         
-
+        # Pass information to the view on the user
+        if($user_name) {
+            $this->template->content->user_name = $user_name;
+        }
+        else {
+            $this->template->content->user_name = $this->user->user_name;
+        }
         echo $this->template;
 
         
     }
 
-} # end of the class
+} # eoc
