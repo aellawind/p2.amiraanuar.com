@@ -20,7 +20,7 @@
 
 
     <div id="header">
-		<img src="/images/header.png" alt="Baking Bites" height="317px" width="783px">
+		<img src="/images/header.png" alt="Baking Bites" height="317" width="783">
 	</div>
     <div class='wrapper'>
     	<div class="container">

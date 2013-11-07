@@ -3,15 +3,15 @@
 <form method='POST' action ='/users/p_signup'>
 
 
-	First Name<font color="red">*</font><br>
+	First Name<span style="color:red">*</span><br>
 	<input type='text' name='first_name' class='submissionfield'><br><br>
-	Last Name<font color="red">*</font><br>
+	Last Name<span style="color:red">*</span><br>
 	<input type='text' name='last_name' class='submissionfield'><br><br>
-	Email<font color="red">*</font><br>
+	Email<span style="color:red">*</span><br>
 	<input type='text' name = 'email' class='submissionfield'><br><br>
-	Username<font color="red">*</font><br>
+	Username<span style="color:red">*</span><br>
 	<input type='text' name = 'username' class='submissionfield'><br><br>
-	Password<font color="red">*</font><br>
+	Password<span style="color:red">*</span><br>
 	<input type='password' name='password' class='submissionfield'><br><br>
 
 	<!-- The below is all error checking for the field inputs.-->
@@ -76,5 +76,5 @@
 
 </form>
 <br>
-Items marked with <font color="red">*</font> are required.
+Items marked with <span style="color:red">>*</span> are required.
 
