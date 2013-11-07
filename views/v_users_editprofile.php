@@ -2,7 +2,7 @@
 
 <p>Hello, <?=$user->first_name ?> !</p>
 
-<p>Fill in the following fields to update your profile.</p>
+<p>Fill in the following fields to update your profile. None of the fields are required.</p>
 
 <form method='POST' action ='/users/p_profile'>
 
