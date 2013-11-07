@@ -240,10 +240,8 @@ class users_controller extends base_controller {
             # Change the variable
             $username = $this->user->username;
             $this->template->content->username = $username;
-        }
+        }   
         
-        
-
 
         $q = "SELECT first_name, 
                     last_name, 
@@ -253,11 +251,11 @@ class users_controller extends base_controller {
                     cookie,
                     bakingadvice,
                     bio,
-                    recipes
+                    recipes,
+                    username
                 FROM users
                 WHERE users.username = '".$username."'";
         
-
 
         $profile = DB::instance(DB_NAME)->select_rows($q);
         

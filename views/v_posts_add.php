@@ -17,7 +17,7 @@
 		<a href="/posts/delete/<?=$post['post_id']?>" class="deletepost">Delete Post</a>
 
 		<!--Shows post content-->
-		<p id="name">You (<?=$post['first_name']?> <?=$post['last_name']?>) posted:</p>
+		<p id="name">You ( <?=$user->first_name ?>  <?=$user->last_name ?>) posted:</p>
 		    <p><?=$post['content']?></p>
 
 		    <time datetime="<?=Time::display($post['created'],'Y-m-d G:i')?>" id="small">

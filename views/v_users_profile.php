@@ -13,6 +13,7 @@
 
 
 <p><b>Name: </b><?=$prof['first_name']?> <?=$prof['last_name']?></p>
+<p><b>Username: </b><?=$prof['username']?></p>
 <p><b>Nickname: </b><?=$prof['nickname']?></p>
 <p><b>Baked Good of Choice: </b><?=$prof['bakedgood']?></p>
 <p><b>Favorite Type of Cake: </b><?=$prof['cake']?></p>
