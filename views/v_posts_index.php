@@ -4,11 +4,11 @@
 
 <div class="post">
 
-    <p id="name"><?=$post['first_name']?> <?=$post['last_name']?> posted:</p>
+    <p class="name"><?=$post['first_name']?> <?=$post['last_name']?> posted:</p>
 
     <p><?=$post['content']?></p>
 
-    <time datetime="<?=Time::display($post['created'],'Y-m-d G:i')?>" id="small">
+    <time datetime="<?=Time::display($post['created'],'Y-m-d G:i')?>" class="small">
         <?=Time::display($post['created'])?>
     </time>
 

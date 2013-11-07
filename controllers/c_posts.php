@@ -12,6 +12,7 @@ class posts_controller extends base_controller {
         }
     }
 
+    # This is the page where users can add a post and also see the posts they've already added.
     public function add() {
 
         # Setup view
@@ -30,12 +31,10 @@ class posts_controller extends base_controller {
 			INNER JOIN users 
 			    ON posts.user_id = '".$this->user->user_id."'
 			GROUP BY posts.post_id";
-			
-			
-
 
     	# Run the query, store the results in the variable $posts
     	$posts = DB::instance(DB_NAME)->select_rows($q);
+
     	# Send the reversed array so the most recent one shows first.
     	$posts_reversed = array_reverse($posts);
 
@@ -47,6 +46,7 @@ class posts_controller extends base_controller {
 
     }
 
+    # This is the function that takes in the given information from adding a post and processes it.
     public function p_add() {
 
         # Associate this post with this user
@@ -56,7 +56,7 @@ class posts_controller extends base_controller {
         $_POST['created']  = Time::now();
         $_POST['modified'] = Time::now();
 
-        # Insert
+        # Insert data
         # Note we didn't have to sanitize any of the $_POST data because we're using the insert method which does it for us
         DB::instance(DB_NAME)->insert('posts', $_POST);
 
@@ -66,9 +66,10 @@ class posts_controller extends base_controller {
 
     }
 
+    # The below shows the page where the user is asked if they really want to delete that post.
     public function delete($post_id) {
 
-    	$this->template->content = View::instance('v_post_delete');
+        $this->template->content = View::instance('v_post_delete');
     	$this->template->title = "Delete Confirmation";
     	$this->template->content->post_id = $post_id;
 
@@ -76,7 +77,7 @@ class posts_controller extends base_controller {
 
     }
 
-
+    # This function deletes the post that the user has confirmed to delete, then redirects to add posts page.
     public function p_delete($post_id) {
 
     	$post_location = 'WHERE post_id = '.$post_id;
@@ -85,14 +86,14 @@ class posts_controller extends base_controller {
     	Router::redirect("/posts/add");
     }
 
-
+    # This function represents the index that shows all of the posts that the user is following.
     public function index() {
 
     	# Set up the View
     	$this->template->content = View::instance('v_posts_index');
     	$this->template->title   = "All Posts";
 
-    	# Query
+    	# Query to see all the posts that the user is following
     	$q = 'SELECT 
             	posts.content,
             	posts.created,
@@ -120,7 +121,7 @@ class posts_controller extends base_controller {
 
 	}
 
-
+    # This function finds all of the users so main user can choose who to follow/unfollow
 	public function users() {
 
 		# Set up the View
@@ -144,8 +145,6 @@ class posts_controller extends base_controller {
 
     	# Execute this query with the select_array method
     	# select_array will return our results in an array and use the "users_id_followed" field as the index.
-    	# This will come in handy when we get to the view
-    	# Store our results (an array) in the variable $connections
     	$connections = DB::instance(DB_NAME)->select_array($q, 'user_id_followed');
 
     	# Pass data (users and connections) to the view
@@ -157,6 +156,7 @@ class posts_controller extends base_controller {
 
 	}
 
+    # This function processes the person to be followed.
 	public function follow($user_id_followed) {
 
     	# Prepare the data array to be inserted
@@ -174,6 +174,7 @@ class posts_controller extends base_controller {
 
 	}
 
+    # Unfollow a user.
 	public function unfollow($user_id_followed) {
 
     	# Delete this connection

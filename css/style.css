@@ -1,28 +1,4 @@
-/* Submit Button */
-
-#submit {
-	cursor: pointer;
-	border : solid 0px #363636;
-	border-radius : 10px;
-	moz-border-radius : 10px;
-	-webkit-box-shadow : 0px 0px 2px rgba(0,0,0,0.2);
-	-moz-box-shadow : 0px 0px 2px rgba(0,0,0,0.2);
-	box-shadow : 0px 0px 2px rgba(0,0,0,0.2);
-	font-size : 16px;
-	font-family: 'Georgia';
-	color : #363636;
-	padding : 4px 17px;
-	background : #a8a8a8;
-	background : -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a8a8a8), color-stop(0%,#a6a6a6), color-stop(100%,#454346));
-	background : -moz-linear-gradient(top, #a8a8a8 0%, #a6a6a6 0%, #454346 100%);
-	background : -webkit-linear-gradient(top, #a8a8a8 0%, #a6a6a6 0%, #454346 100%);
-	background : -o-linear-gradient(top, #a8a8a8 0%, #a6a6a6 0%, #454346 100%);
-	background : -ms-linear-gradient(top, #a8a8a8 0%, #a6a6a6 0%, #454346 100%);
-	background : linear-gradient(top, #a8a8a8 0%, #a6a6a6 0%, #454346 100%);
-	filter : progid:DXImageTransform.Microsoft.gradient( startColorstr='#a8a8a8', endColorstr='#454346',GradientType=0 );
-}
-
-/* basic elements */
+/* Basic elements */
 html {
 	margin: 0;
 	padding: 0;
@@ -56,6 +32,7 @@ body {
 	padding: 0;
 }
 
+/* Navigation Bar */
 ul {
     margin: 0;
     padding: 0;
@@ -107,6 +84,7 @@ ul li.active a{
     background: -moz-radial-gradient(center 70px 45deg, circle cover, rgba(31,169,244,1) 0%, rgba(0,28,78, 1) 100%);
 }
 
+/*General wrappers for divs*/
 .wrapper {
     width: 783px;
     height: 71px;
@@ -146,6 +124,9 @@ ul li.active a{
 
 }
 
+
+/* Post wrapper */
+
 .post {
 	width:80%;
 	background:rgba(180,160,136,1);
@@ -161,6 +142,8 @@ ul li.active a{
 
 }
 
+/* Miscellaneous CSS elements to format smaller things */
+
 #bigtextfield {
 	width:550px;
 	height:75px;
@@ -171,7 +154,7 @@ ul li.active a{
 	font-size: 75%;
 }
 
-#name {
+.name {
 	font-weight:bold;
 	color:#4b3f2f;
 }
@@ -199,6 +182,56 @@ ul li.active a{
 	position:absolute;
 	margin:auto 0px auto 10px;
 
+}
+
+
+/* Change user profile link formatting */
+a.userlink {
+
+	text-decoration:none;
+	color:#4D4443;
+	border-bottom:1px dotted
+}
+
+a.userlink:hover {
+
+	border-bottom:2px dotted;
+
+}
+
+/* Create a prettier submission field. */
+
+.submissionfield { 
+
+	color: #781351;
+	background: #fee3ad;
+	height: 300%;
+	border: 1px solid #927B5F;
+
+}
+
+/* Submit Button */
+
+#submit {
+	cursor: pointer;
+	border : solid 0px #363636;
+	border-radius : 10px;
+	moz-border-radius : 10px;
+	-webkit-box-shadow : 0px 0px 2px rgba(0,0,0,0.2);
+	-moz-box-shadow : 0px 0px 2px rgba(0,0,0,0.2);
+	box-shadow : 0px 0px 2px rgba(0,0,0,0.2);
+	font-size : 16px;
+	font-family: 'Georgia';
+	color : #363636;
+	padding : 4px 17px;
+	background : #a8a8a8;
+	background : -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a8a8a8), color-stop(0%,#a6a6a6), color-stop(100%,#454346));
+	background : -moz-linear-gradient(top, #a8a8a8 0%, #a6a6a6 0%, #454346 100%);
+	background : -webkit-linear-gradient(top, #a8a8a8 0%, #a6a6a6 0%, #454346 100%);
+	background : -o-linear-gradient(top, #a8a8a8 0%, #a6a6a6 0%, #454346 100%);
+	background : -ms-linear-gradient(top, #a8a8a8 0%, #a6a6a6 0%, #454346 100%);
+	background : linear-gradient(top, #a8a8a8 0%, #a6a6a6 0%, #454346 100%);
+	filter : progid:DXImageTransform.Microsoft.gradient( startColorstr='#a8a8a8', endColorstr='#454346',GradientType=0 );
 }
 
 /* The following code prettifies the follow and unfollow buttons.*/
@@ -438,31 +471,4 @@ ul li.active a{
 	position:relative;
 	top:1px;
 }
-
-/* Change user profile link formatting*/
-a.userlink {
-
-	text-decoration:none;
-	color:#4D4443;
-	border-bottom:1px dotted
-}
-
-a.userlink:hover {
-
-	border-bottom:2px dotted;
-
-}
-
-/* Create a prettier submission field. */
-
-.submissionfield { 
-
-	color: #781351;
-	background: #fee3ad;
-	height: 300%;
-	border: 1px solid #927B5F;
-
-}
-
-
 

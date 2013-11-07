@@ -1,4 +1,5 @@
 <?php
+
 class users_controller extends base_controller {
 
     public function __construct() {
@@ -7,7 +8,9 @@ class users_controller extends base_controller {
     } 
 
     public function index() {
-        echo "This is the index page";
+
+        #Assumes people who go to /users wants to see the list of users, which is in posts controller, so redirect.
+        Router::redirect('/posts/users');
     }
 
     public function signup($error=NULL) {
@@ -159,8 +162,6 @@ class users_controller extends base_controller {
         Router::redirect("/");
 
     }
-
-}
     
 
     public function logout() {
@@ -231,11 +232,12 @@ class users_controller extends base_controller {
         $this->template->content = View::instance('v_users_profile');
         $this->template->title = "User Profile";
 
+        # Passes in empty string to the view so we can evalluate if we show "Edit Profile" for the user
         if($username) {
             $this->template->content->username = "";
         }
 
-        # Lookin at your own profile
+        # Looking at your own profile
         else {
             # Change the variable
             $username = $this->user->username;
@@ -262,10 +264,6 @@ class users_controller extends base_controller {
         # Pass the data to the view
         $this->template->content->profile = $profile;    
 
-        # Pass the username to the view
-
-
-        #
         echo $this->template;
 
         

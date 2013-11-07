@@ -14,6 +14,5 @@
 
 	<input type='submit' name='submit' value='Log In' id='submit'>
 
-
 </form>
 <br>

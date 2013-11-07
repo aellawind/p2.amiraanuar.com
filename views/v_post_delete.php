@@ -7,6 +7,4 @@
 	<a href="/posts/p_delete/<?=$post_id?>" class="deleteconfirm">Yes</a> 
 	<a href="/posts" class="deleteconfirm">No</a>
 
-	
-
 </div>
