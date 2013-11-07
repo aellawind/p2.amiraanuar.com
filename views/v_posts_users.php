@@ -3,7 +3,7 @@
 <br><br>
 <?php foreach($users as $user): ?>
 
-	<div id="follow">
+	<div class="follow">
 	    <!-- Print this user's name -->
 	    <a href='/users/profile/<?=$user['username']?>' class="userlink">
 	    <?=$user['first_name']?> <?=$user['last_name']?>

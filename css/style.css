@@ -176,7 +176,7 @@ ul li.active a{
 	color:#4b3f2f;
 }
 
-#follow {
+.follow {
 	width:85%;
 	background:#B39D9A;
 	margin: auto;
@@ -461,6 +461,7 @@ a.userlink:hover {
 	background: #fee3ad;
 	height: 300%;
 	border: 1px solid #927B5F;
+
 }
 
 

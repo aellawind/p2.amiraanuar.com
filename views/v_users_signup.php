@@ -76,5 +76,5 @@
 
 </form>
 <br>
-Items marked with <span style="color:red">>*</span> are required.
+Items marked with <span style="color:red">*</span> are required.
 
