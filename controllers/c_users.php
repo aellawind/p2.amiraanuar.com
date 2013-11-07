@@ -10,19 +10,63 @@ class users_controller extends base_controller {
         echo "This is the index page";
     }
 
-    public function signup() {
+    public function signup($error=NULL) {
+        
         # Set up the view
         $this->template->content = View::instance('v_users_signup');
         $this->template->title = "Sign Up";
+
+        # If the user doesn't input all the fields, it needs to output an error.
+        $this->template->content->error = $error;
+        # If email has already been used, we need to output an error.
+        #$this->template->content->duplicate_email_error = $duplicate_email_error
+
         
         #Render the view
         echo $this->template;
 
     }
 
-    #MAKE SURE PEOPLE SIGNING UP CAN'T INPUT THE SAME EMAIL ADDRESSSSS
-
     public function p_signup() {
+
+         # Sanitize the user entered data to prevent any funny-business (re: SQL Injection Attacks)
+        $_POST = DB::instance(DB_NAME)->sanitize($_POST);
+
+        # Set up the email and password query
+        $q = "SELECT * FROM users WHERE email = '".$_POST['email']."'";
+
+        # Query the database for the email
+        $user_exists = DB::instance(DB_NAME)->select_rows($q);
+
+        # Check if this email exists in the database
+        if(!empty($user_exists)){
+            # Send the person back to the sign in page with an error
+            Router::redirect('/users/signup/user-exists');
+        }
+
+
+        # Check to make sure the fields entered are acceptable.
+        if ($_POST['first_name'] == "") {
+            Router::redirect('/users/signup/firstname_required');
+        }
+
+        if ($_POST['last_name'] == "") {
+            Router::redirect('/users/signup/lastname_required');
+        }
+
+
+        if ($_POST['email'] == "") {
+            Router::redirect('/users/signup/email_required');
+        }
+
+        if ($_POST['password'] == "") {
+            Router::redirect('/users/signup/password_required');
+        }
+
+        if (strlen($_POST['password']) <= 5) {
+            Router::redirect('/users/signup/short_password');
+         }
+            
 
         # More data we want stored with the user
         $_POST['created'] = Time::now();
@@ -36,6 +80,12 @@ class users_controller extends base_controller {
 
         # Insert this user into the database
         $user_id = DB::instance(DB_NAME)->insert_row('users', $_POST);
+
+        # Now that the user has signed up, we want to automatically log them in so they can edit their profile.
+        if($user_id) {
+            setcookie('token',$_POST['token'], strtotime('+1 year'), '/');
+        }
+
 
         # Send them to the edit profile page, once signed up
         Router::redirect("/users/editprofile");
@@ -126,18 +176,17 @@ class users_controller extends base_controller {
         }
 
         else {
-        $view = View::instance('v_users_editprofile');
+            # Set up the view
+            $this->template->content = View::instance('v_users_editprofile');
+            $this->template->title = "Edit Your Profile";
 
-        $view->user_name = $user_name;
-
-
-        echo $view;
-    }
+            echo $this->template;
+        }
 
      
     }
 
-    public function profile($first_name = NULL) {
+    public function p_profile($first_name = NULL) {
 
         $view = View::instance('v_users_profile');
 

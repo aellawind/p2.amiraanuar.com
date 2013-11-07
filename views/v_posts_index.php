@@ -1,15 +1,18 @@
+<h1>The Makings of Recent Bakings</h1>
+
 <?php foreach($posts as $post): ?>
 
-<article>
+<div id="post">
 
-    <h1><?=$post['first_name']?> <?=$post['last_name']?> posted:</h1>
+    <p id="name"><?=$post['first_name']?> <?=$post['last_name']?> posted:</p>
 
     <p><?=$post['content']?></p>
 
-    <time datetime="<?=Time::display($post['created'],'Y-m-d G:i')?>">
+    <time datetime="<?=Time::display($post['created'],'Y-m-d G:i')?>" id="small">
         <?=Time::display($post['created'])?>
     </time>
 
-</article>
+</div>
 
 <?php endforeach; ?>
+<br><br>

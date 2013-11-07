@@ -16,7 +16,30 @@ class posts_controller extends base_controller {
 
         # Setup view
         $this->template->content = View::instance('v_posts_add');
-        $this->template->title   = "New Post";
+        $this->template->title   = "Post";
+
+        # Query
+    	$q = "SELECT 
+			    posts.content,
+	            posts.created,
+	           	posts.user_id,
+	           	users.first_name,
+	           	users.last_name
+			FROM posts
+			INNER JOIN users 
+			    ON posts.user_id = '".$this->user->user_id."'
+			GROUP BY posts.post_id";
+			
+			
+
+
+    	# Run the query, store the results in the variable $posts
+    	$posts = DB::instance(DB_NAME)->select_rows($q);
+    	# Send the reversed array so the most recent one shows first.
+    	$posts_reversed = array_reverse($posts);
+
+    	# Pass data to the View
+    	$this->template->content->posts = $posts_reversed;
 
         # Render template
         echo $this->template;
@@ -36,8 +59,9 @@ class posts_controller extends base_controller {
         # Note we didn't have to sanitize any of the $_POST data because we're using the insert method which does it for us
         DB::instance(DB_NAME)->insert('posts', $_POST);
 
-        # Quick and dirty feedback
-        echo "Your post has been added. <a href='/posts/add'>Add another</a>";
+        # Send them back to the original page where they can see all their posts.
+        Router::redirect("/posts/add");
+
 
     }
 
@@ -64,9 +88,11 @@ class posts_controller extends base_controller {
 
     	# Run the query, store the results in the variable $posts
     	$posts = DB::instance(DB_NAME)->select_rows($q);
+    	# Send the reversed array so the most recent one shows first.
+    	$posts_reversed = array_reverse($posts);
 
     	# Pass data to the View
-    	$this->template->content->posts = $posts;
+    	$this->template->content->posts = $posts_reversed;
 
     	# Render the View
     	echo $this->template;
