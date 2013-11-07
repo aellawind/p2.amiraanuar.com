@@ -14,6 +14,10 @@
 
 	<div id="post">
 
+			<!--Delete button-->
+		<a href="/posts/delete/<?=$post['post_id']?>" class="deletepost">Delete Post</a>
+		
+		<!--Shows post content-->
 		<p id="name">You (<?=$post['first_name']?> <?=$post['last_name']?>) posted:</p>
 		    <p><?=$post['content']?></p>
 
@@ -21,8 +25,10 @@
 		        <?=Time::display($post['created'])?>
 		    </time><br>
 
-		<!--Delete button-->
-		<a href="/posts/delete/<?=$post['post_id']?>">Delete Post</a>
+
+
+
+		
 
 	   
 
@@ -30,4 +36,4 @@
 
 <?php endforeach; ?>
 
-<br><br>test
+<br><br>

@@ -2,6 +2,13 @@
 
 <?php foreach($profile as $prof): ?>
 
+<!--Only shows if it's default user-->
+<?php if($username): ?>
+	<br>
+	<a href="/users/editprofile" class='editprofile'>Edit Your Profile</a>
+	<br>
+<?php endif; ?>
+
 <h1><?=$prof['first_name']?>'s Profile</h1>
 
 
@@ -17,10 +24,7 @@
 
 <?php endforeach; ?>
 
-<!--Only shows if it's default user-->
-<?php if($username): ?>
-	<a href="/users/editprofile">Edit Your Profile</a>
-<?php endif; ?>
+
 
 </div>
 <br><br>

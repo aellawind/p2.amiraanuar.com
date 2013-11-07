@@ -18,7 +18,7 @@ Share some links to your favorite recipes <input type='text' name='recipes'><br>
 
 
 
-<input type='submit' value='Submit Profile'>
+<input type='submit' value='Submit Profile' id='submit'>
 
 
 </form>
