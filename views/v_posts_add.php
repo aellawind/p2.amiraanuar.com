@@ -1,8 +1,7 @@
 <h1>Got something cooking in the oven? Let it out!</h1>
 <form method='POST' action='/posts/p_add'>
 
-    <label for='content'></label>
-    <textarea name='content' id='bigtextfield'></textarea>
+    <textarea name='content' id='bigtextfield' class="submissionfield"></textarea>
 
     <br>
     <input type='submit' value='New Post' id='submit'>
@@ -16,7 +15,7 @@
 
 			<!--Delete button-->
 		<a href="/posts/delete/<?=$post['post_id']?>" class="deletepost">Delete Post</a>
-		
+
 		<!--Shows post content-->
 		<p id="name">You (<?=$post['first_name']?> <?=$post['last_name']?>) posted:</p>
 		    <p><?=$post['content']?></p>

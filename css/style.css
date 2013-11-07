@@ -452,3 +452,16 @@ a.userlink:hover {
 	border-bottom:2px dotted;
 
 }
+
+/* Create a prettier submission field. */
+
+.submissionfield { 
+
+	color: #781351;
+	background: #fee3ad;
+	height: 300%;
+	border: 1px solid #927B5F;
+}
+
+
+
