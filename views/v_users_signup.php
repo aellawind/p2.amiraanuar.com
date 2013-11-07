@@ -4,15 +4,15 @@
 
 
 	First Name<font color="red">*</font><br>
-	<input type='text' name='first_name'><br><br>
+	<input type='text' name='first_name' class='submissionfield'><br><br>
 	Last Name<font color="red">*</font><br>
-	<input type='text' name='last_name'><br><br>
+	<input type='text' name='last_name' class='submissionfield'><br><br>
 	Email<font color="red">*</font><br>
-	<input type='text' name = 'email'><br><br>
+	<input type='text' name = 'email' class='submissionfield'><br><br>
 	Username<font color="red">*</font><br>
-	<input type='text' name = 'username'><br><br>
+	<input type='text' name = 'username' class='submissionfield'><br><br>
 	Password<font color="red">*</font><br>
-	<input type='password' name='password'><br><br>
+	<input type='password' name='password' class='submissionfield'><br><br>
 
 	<!-- The below is all error checking for the field inputs.-->
 	<?php if($error == 'user-exists'): ?>
